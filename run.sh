@@ -53,6 +53,7 @@ MYSQL_HOME="/var/lib/mysql"
 if [[ ! -d $MYSQL_HOME/mysql ]]; then
   echo -e "\n=> Installing MySQL ..."
   mysql_install_db > /dev/null 2>&1
+  chown -R mysql:mysql /var/lib/mysql > /dev/null 2>&1
 else
   echo -e "\n=> Using an existing volume of MySQL"
 fi
