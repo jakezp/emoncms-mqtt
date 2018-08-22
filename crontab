@@ -1,4 +1,2 @@
 * * * * * date >> /var/log/cron.log 2>&1
 * * * * * /home/pi/emonpi/service-runner >> /var/log/service-runner.log 2>&1
-0 9 * * 1 php /home/pi/emailreport/weekly-cron.php >> /var/log/emoncms/emailreport.log 2>&1
-
