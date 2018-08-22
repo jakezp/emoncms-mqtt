@@ -1,11 +1,7 @@
 #!/bin/bash
 
-# Prepare mysql
-mv /root/my.cnf /etc/mysql/
-chown -R mysql:mysql /var/lib/mysql/
-
 # Start MySQL Server
-service mysql start #> /dev/null 2>&1
+service mysql start > /dev/null 2>&1
 
 RET=1
 while [[ RET -ne 0 ]]; do

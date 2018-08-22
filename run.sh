@@ -42,6 +42,12 @@ if [[ -z $MYSQL_PASSWORD ]]; then
   exit 1;
 fi
 
+# Prepare mysql
+if [[ ! -f /etc/mysql/my.cnf ]]; then
+  mv /root/my.cnf /etc/mysql/
+fi
+chown -R mysql:mysql /var/lib/mysql/
+
 # Initialize MySQL if it not initialized yet
 MYSQL_HOME="/var/lib/mysql"
 if [[ ! -d $MYSQL_HOME/mysql ]]; then
