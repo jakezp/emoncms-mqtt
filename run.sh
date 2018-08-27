@@ -57,8 +57,12 @@ else
   echo -e "\n=> Using an existing volume of MySQL"
 fi
 
-# Ensuring ownership is set correctly on mysql directory
+# Ensuring ownership is set correctly on directories
 chown -R mysql:mysql /var/lib/mysql/ > /dev/null 2>&1
+chown -R www-data:www-data /var/www/html/ > /dev/null 2>&1
+chown -R www-data:www-data /var/lib/phpfina/ > /dev/null 2>&1
+chown -R www-data:www-data /var/lib/phpfiwa/ > /dev/null 2>&1
+chown -R www-data:www-data /var/lib/phptimeseries/ > /dev/null 2>&1
 
 # Run db scripts only if there's no existing emoncms database
 EMON_HOME="/var/lib/mysql/emoncms"
