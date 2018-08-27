@@ -46,17 +46,19 @@ fi
 if [[ ! -f /etc/mysql/my.cnf ]]; then
   mv /root/my.cnf /etc/mysql/
 fi
-chown -R mysql:mysql /var/lib/mysql/
 
 # Initialize MySQL if it not initialized yet
 MYSQL_HOME="/var/lib/mysql"
 if [[ ! -d $MYSQL_HOME/mysql ]]; then
   echo -e "\n=> Installing MySQL ..."
   mysql_install_db > /dev/null 2>&1
-  chown -R mysql:mysql /var/lib/mysql > /dev/null 2>&1
+  chown -R mysql:mysql /var/lib/mysql/ > /dev/null 2>&1
 else
   echo -e "\n=> Using an existing volume of MySQL"
 fi
+
+# Ensuring ownership is set correctly on mysql directory
+chown -R mysql:mysql /var/lib/mysql/ > /dev/null 2>&1
 
 # Run db scripts only if there's no existing emoncms database
 EMON_HOME="/var/lib/mysql/emoncms"
