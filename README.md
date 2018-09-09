@@ -20,7 +20,7 @@ docker run -d --name='emoncms-mqtt' --net='bridge' \
           -v '/tmp/html':'/var/www/html' \
           -v '/tmp/crontabs':'/var/spool/cron/crontabs' \
           -v '/etc/localtime':'/etc/localtime':'ro' \
-          jakezp/emoncms-mqtt
+          zoemdoef/emoncms-mqtt
 ```
 Change:
               MYSQL_PASSWORD - MySQL password
