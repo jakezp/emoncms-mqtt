@@ -1,7 +1,7 @@
 # Dockerfile for base image for emoncms
 FROM ubuntu:14.04
 
-MAINTAINER jakezp
+MAINTAINER zoemdoef
 
 ENV DEBIAN_FRONTEND noninteractive
 

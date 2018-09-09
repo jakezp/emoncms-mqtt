@@ -12,7 +12,7 @@ fi
 
 #Install emoncms
 INDEX="/var/www/html/settings.php"
-if [[ ! -d $INDEX ]]; then
+if [[ ! -f $INDEX ]]; then
   echo -e "\n=> Installing emoncms"
   rm -rf /var/www/html
   rm -rf /home/pi/emailreport
@@ -63,6 +63,7 @@ chown -R www-data:www-data /var/www/html/ > /dev/null 2>&1
 chown -R www-data:www-data /var/lib/phpfina/ > /dev/null 2>&1
 chown -R www-data:www-data /var/lib/phpfiwa/ > /dev/null 2>&1
 chown -R www-data:www-data /var/lib/phptimeseries/ > /dev/null 2>&1
+chown -R www-data:www-data /var/lib/phpfina/
 
 # Run db scripts only if there's no existing emoncms database
 EMON_HOME="/var/lib/mysql/emoncms"
@@ -104,6 +105,7 @@ if [[ ! -f /var/spool/cron/crontabs/pi ]]; then
   mv /root/crontab /var/spool/cron/crontabs/pi
 fi
 touch /etc/crontab /etc/cron.d/* /var/spool/cron/crontabs/*
+touch /etc/cron.d/emoncms
 chmod 0600 /etc/cron.d/emoncms /var/spool/cron/crontabs/pi
 
 # Use supervisord to start all processes
