@@ -12,7 +12,7 @@ fi
 
 #Install emoncms
 INDEX="/var/www/html/settings.php"
-if [[ ! -d $INDEX ]]; then
+if [[ ! -f $INDEX ]]; then
   echo -e "\n=> Installing emoncms"
   rm -rf /var/www/html
   rm -rf /home/pi/emailreport
