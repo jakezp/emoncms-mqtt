@@ -1,5 +1,7 @@
 # docker-emoncms
 
+**Inactive repo: Rather https://github.com/jakezp/emoncms** Leaving this repo up as reference.
+
 Emoncms is a powerful open-source web-app for processing, logging and visualizing energy, temperature and other environmental data. 
 Emoncms with mqtt_input configured
 
